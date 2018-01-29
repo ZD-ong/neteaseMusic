@@ -21,17 +21,30 @@
             position: absolute;
             background: transparent url(//i.loli.net/2018/01/28/5a6ddd46c992b.jpeg) no-repeat center;
             background-size: cover;
-            filter: blur(100px) brightness(0.2);
+            filter: blur(50px) brightness(0.2);
         }
-        section.pointer {
+        .page .logo {
+            position: absolute;
+            left: 10px;
+            top: 12px;
+            display: block;
+            width: 100px;
+            height: 17px;
+            background: url(//i.loli.net/2018/01/29/5a6f27e3ade38.png) no-repeat;
+            background-size: 100px auto;
+        }
 
+        section.pointer {
+            position: absolute;
+            top: 0;
+            
         }
         section.disk {
-            margin-top: 20px;
+            padding-top: 70px;
         }
         section.disk > .circle {
-            width: 258px;
-            height: 258px;
+            width: 296px;
+            height: 296px;
             margin: 0 auto;
             position: relative;
         }
@@ -59,10 +72,15 @@
             position: absolute;
             top: 50%;
             left: 50%;
-            margin-left: -80px;
-            margin-top: -80px;
+            width: 184px;
+            height: 184px;
+            margin-left: -92px;
+            margin-top: -92px;
             border-radius: 50%;
             border: none;
+        }
+        section.disk.circle.playing >img {
+            
         }
         section.disk .circle.playing > img,
         section.disk .circle.playing::after {
@@ -71,8 +89,30 @@
         section.lyric {
 
         }
-        section.actions {
-
+        section.action {
+            position: absolute;
+            display: flex;
+            bottom: 0;
+            padding:10px;
+            margin: 0 auto;
+            width: 100%;
+        }
+        
+        section.action div {
+            flex: 1 1 auto;
+            margin: 0 6px;
+            text-align: center;
+            font-size: 18px;
+            line-height: 38px;
+            border: 1px solid #d43c33;
+            border-radius: 40px;
+        }
+        section.action .open {
+            color: #d43c33;
+        }
+        section.action .download {
+            color: #ffffff;
+            background: #d43c33;
         }
         @keyframes spin {
                 0% {
@@ -86,14 +126,24 @@
 </head>
 <body>
     <div class="page">
-        <section class="pointer"></section>
+        <span class="logo"></span>
+        <section class="pointer">
+            <span></span>
+        </section>
         <section class="disk">
             <div class="circle playing">
-                <img src="//i.loli.net/2018/01/28/5a6ddd46c992b.jpeg" width="160" height="160" alt="">
-            </section>
-        </div>
+                <img src="//i.loli.net/2018/01/28/5a6ddd46c992b.jpeg" alt="">
+            </div>
+        </section>
         <section class="lyric"></section>
-        <section class="action"></section>
+        <section class="action clearfix">
+            <div class="open">
+                <a href="#">打开</a>
+            </div>
+            <div class="download">
+                <a href="#">下载</a>
+            </div>
+        </section>
     </div>
 </body>
 </html>
