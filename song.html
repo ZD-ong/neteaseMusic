@@ -64,8 +64,9 @@
             border-radius: 50%;
             border: none;
         }
-        section.disk .circle.playing > img {
-            animation: spin 15s;
+        section.disk .circle.playing > img,
+        section.disk .circle.playing::after {
+            animation: spin 15s linear infinite;
         }
         section.lyric {
 
