@@ -46,7 +46,7 @@ function setNewSong(data){
     data.result.forEach(
         function(song){
             var tpl = `<li class="newSongList">
-            <h3 class="songName">Friends</h3>
+            <h3 class="songName"></h3>
             <p class="profile"><span class="author"></span> - <span class="album"></span></p>
             <a class="playButton" href="#">
                 <svg class="icon icon-play">
