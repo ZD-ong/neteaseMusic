@@ -249,3 +249,41 @@ section.hot-header .title {
     background-position: -24px -30px;
     background-size: 166px 97px;
 }
+section.hot-main > .hotlist {
+    margin-top: 18px;
+}
+
+section.hot-main > .hotlist > li > h3 {
+    font-size: 17px;
+    overflow: hidden;
+    text-overflow:ellipsis;
+    white-space: nowrap;
+    max-width: 325px;
+}
+section.hot-main > .hotlist > li >p {
+    font-size: 12px;
+    color: #888888;
+    overflow: hidden;
+    text-overflow:ellipsis;
+    white-space: nowrap;
+    max-width: 325px;
+}
+section.hot-main > .hotlist > li {
+    position: relative;
+    margin-left: 10px;
+    padding-bottom: 4px;
+    padding-top: 4px;
+    border-bottom: 1px solid #e2e2e2;
+}
+section.hot-main > .hotlist .playButton {
+    position: absolute;
+    right: 8px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+section.hot-main > .hotlist .icon-play {
+    width: 22px;
+    height: 22px;
+    vertical-align: middle;
+    fill: #aaaaaa;
+}
