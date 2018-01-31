@@ -9,6 +9,11 @@ console.log('最新歌曲')
 console.log(data)
 setNewSong(data)
 })
+$.get("http://localhost:3000/top/list?idx=1").then( function(data){
+console.log('热歌榜') 
+console.log(data)
+setHotSong(data)
+})
 
 function setHighQuality(data){
     data.playlists.forEach(
@@ -45,7 +50,7 @@ function setHighQuality(data){
 function setNewSong(data){
     data.result.forEach(
         function(song){
-            var tpl = `<li class="newSongList">
+            var tpl = `<li class="songList">
             <h3 class="songName"></h3>
             <p class="profile"><span class="author"></span> - <span class="album"></span></p>
             <a class="playButton" href="#">
@@ -70,6 +75,70 @@ function setNewSong(data){
         
             
             $('.list').eq(0).append($node)
+        }
+    )
+}
+
+
+// function setHotSong(data){
+//     data.playlist.tracks.forEach(
+//         function(song){
+//             var tpl = `<li class="hotSongList">
+//             <h3 class="songName"></h3>
+//             <p class="profile"><span class="author"></span> - <span class="album"></span></p>
+//             <a class="playButton" href="#">
+//                 <svg class="icon icon-play">
+//                     <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-play"></use>
+//                 </svg>
+//             </a>
+//         </li>`
+//             var $node = $(tpl)
+//             $node.find('.hotSongList .songName').text(song.name)
+//             $node.find('.hotSongList .profile .author').text(function(){
+//                 var authorArr = []
+//                 var hotSongAuthor = song.ar.name
+//                 console.log(hotSongAuthor)
+//                 hotSongAuthor.forEach(function(item){
+//                     authorArr.push(item.name)
+//                 })
+//                 return authorArr.join(' / ')
+//             })
+//             $node.find('.hotSongList .profile .album').text(song.m.name)
+            
+        
+            
+//             $('.hotlist').eq(0).append($node)
+//         }
+//     )
+// }
+function setHotSong(data){
+    data.playlist.tracks.forEach(
+        function(song){
+             var tpl = `<li class="hotSongList">
+            <h3 class="hotSongName"></h3>
+            <p class="profile"><span class="hotAuthor"></span> - <span class="hotAlbum"></span></p>
+            <a class="playButton" href="#">
+                <svg class="icon icon-play">
+                    <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-play"></use>
+                </svg>
+            </a>
+        </li>`
+            var $node = $(tpl)
+            $node.find('.hotSongName').text(song.name)
+
+             $node.find('.hotAuthor').text(function(){
+                var authorArr = []
+                var hotSongAuthor = song.ar
+                hotSongAuthor.forEach(function(item){
+                    authorArr.push(item.name)
+                })
+                return authorArr.join(' / ')
+            })
+            $node.find('.hotAlbum').text(song.al.name)
+
+
+            $('.hotlist').eq(0).append($node)
+            
         }
     )
 }
