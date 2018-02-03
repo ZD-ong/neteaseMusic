@@ -298,3 +298,6 @@ section.hot-main > .hotlist .icon-play {
     vertical-align: middle;
     fill: #aaaaaa;
 }
+.page-main {
+    display: none;
+}
