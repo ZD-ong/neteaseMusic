@@ -17,10 +17,8 @@ console.log(data)
 setHotSong(data)
 })
 
-$.get("http://localhost:3000/playlist/detail?id=24381616").then( function(data){
-console.log('获取歌单详情') 
-console.log(data)
-})
+
+
 
 
 function setHighQuality(data){
@@ -39,8 +37,12 @@ function setHighQuality(data){
             $node.find('.cover img').attr('src', song.coverImgUrl)
             $node.find('.description').text(song.copywriter)
             
+            
             //判断播放量，以万位显示
             for(var i = 0;i <= $('.play-count').length;i++){
+                var songId = song.id
+                
+                console.log(songId)
                 var count = song.playCount
                 if(count > 100000){
                     $node.find('.cover .iconfont').text(parseInt(song.playCount/10000) + '万')
@@ -49,10 +51,21 @@ function setHighQuality(data){
                 }
             }
             
-            
             $('.songs').eq(0).append($node)
+            $node.on('click', function(){
+                var _this = this
+             $.get("http://localhost:3000/playlist/detail?id=" + songId).then( function(data){
+                 
+                 console.log('获取歌单详情') 
+                 console.log("http://localhost:3000/playlist/detail?id=" + songId)
+                 console.log(data)
+                 })
+            })
+            
         }
     )
+   
+
 }
 
 function setNewSong(data){
@@ -72,7 +85,6 @@ function setNewSong(data){
             $node.find('.profile .author').text(function(){
                 var authorArr = []
                 var newSongAuthor = song.song.artists
-                console.log(newSongAuthor)
                 newSongAuthor.forEach(function(item){
                     authorArr.push(item.name)
                 })
@@ -119,3 +131,4 @@ function setHotSong(data){
         }
     )
 }
+
