@@ -1,29 +1,29 @@
 
-$.get("http://localhost:3000/top/playlist/highquality?limit=6").then( function(data){
-console.log('获取推荐歌单') 
-console.log(data)
-setHighQuality(data)
+$.get("http://localhost:3000/top/playlist/highquality?limit=6").then(function (data) {
+    console.log('获取推荐歌单')
+    console.log(data)
+    setHighQuality(data)
 })
 
-$.get("http://localhost:3000/personalized/newsong?limit=10").then( function(data){
-console.log('获取最新歌曲') 
-console.log(data)
-setNewSong(data)
+$.get("http://localhost:3000/personalized/newsong?limit=10").then(function (data) {
+    console.log('获取最新歌曲')
+    console.log(data)
+    setNewSong(data)
 })
 
-$.get("http://localhost:3000/top/list?idx=1").then( function(data){
-console.log('获取热歌榜') 
-console.log(data)
-setHotSong(data)
+$.get("http://localhost:3000/top/list?idx=1").then(function (data) {
+    console.log('获取热歌榜')
+    console.log(data)
+    setHotSong(data)
 })
 
 
 
 
 
-function setHighQuality(data){
+function setHighQuality(data) {
     data.playlists.forEach(
-        function(song){
+        function (song) {
             var tpl = `<li class="highQualityList">
             <div class="cover">
                 <img src="https://i.loli.net/2018/01/13/5a599f6266f45.jpg" alt="封面">
@@ -36,41 +36,38 @@ function setHighQuality(data){
             var $node = $(tpl)
             $node.find('.cover img').attr('src', song.coverImgUrl)
             $node.find('.description').text(song.copywriter)
-            
-            
+
+
             //判断播放量，以万位显示
-            for(var i = 0;i <= $('.play-count').length;i++){
+            for (var i = 0; i <= $('.play-count').length; i++) {
                 var songId = song.id
-                
-                console.log(songId)
                 var count = song.playCount
-                if(count > 100000){
-                    $node.find('.cover .iconfont').text(parseInt(song.playCount/10000) + '万')
-                }else{
+                if (count > 100000) {
+                    $node.find('.cover .iconfont').text(parseInt(song.playCount / 10000) + '万')
+                } else {
                     $node.find('.cover .iconfont').text(song.playCount)
                 }
             }
-            
+
             $('.songs').eq(0).append($node)
-            $node.on('click', function(){
+            $node.on('click', function () {
                 var _this = this
-             $.get("http://localhost:3000/playlist/detail?id=" + songId).then( function(data){
-                 
-                 console.log('获取歌单详情') 
-                 console.log("http://localhost:3000/playlist/detail?id=" + songId)
-                 console.log(data)
-                 })
+                $.get("http://localhost:3000/playlist/detail?id=" + songId).then(function (data) {
+
+                    console.log('获取歌单详情')
+                    console.log(data)
+                })
             })
-            
+
         }
     )
-   
+
 
 }
 
-function setNewSong(data){
+function setNewSong(data) {
     data.result.forEach(
-        function(song){
+        function (song) {
             var tpl = `<li class="songList">
             <h3 class="songName"></h3>
             <p class="profile"><span class="author"></span> - <span class="album"></span></p>
@@ -82,43 +79,54 @@ function setNewSong(data){
         </li>`
             var $node = $(tpl)
             $node.find('.songName').text(song.name)
-            $node.find('.profile .author').text(function(){
+            $node.find('.profile .author').text(function () {
                 var authorArr = []
                 var newSongAuthor = song.song.artists
-                newSongAuthor.forEach(function(item){
+                newSongAuthor.forEach(function (item) {
                     authorArr.push(item.name)
                 })
                 return authorArr.join(' / ')
             })
             $node.find('.profile .album').text(song.song.name)
-            
-        
-            
+
+
+
             $('.list').eq(0).append($node)
         }
     )
 }
 
 
-function setHotSong(data){
+function setHotSong(data) {
+    var index = 1
     data.playlist.tracks.forEach(
-        function(song){
-             var tpl = `<li class="hotSongList">
-            <h3 class="hotSongName"></h3>
-            <p class="profile"><span class="hotAuthor"></span> - <span class="hotAlbum"></span></p>
-            <a class="playButton" href="#">
+        function (song) {
+            if(index < 10){
+                index = '0' + index
+            }
+            var tpl =
+            `
+            <span class="index">${index}</span>
+            <li class="hotSongList">
+                <h3 class="hotSongName"></h3>
+                <p class="profile"><span class="hotAuthor"></span> - <span class="hotAlbum"></span></p>
+                <a class="playButton" href="#">
                 <svg class="icon icon-play">
                     <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-play"></use>
                 </svg>
-            </a>
-        </li>`
+                </a>
+            </li>
+            `
+            
             var $node = $(tpl)
             $node.find('.hotSongName').text(song.name)
-
-             $node.find('.hotAuthor').text(function(){
+            
+            index = parseInt(index) + 1
+            
+            $node.find('.hotAuthor').text(function () {
                 var authorArr = []
                 var hotSongAuthor = song.ar
-                hotSongAuthor.forEach(function(item){
+                hotSongAuthor.forEach(function (item) {
                     authorArr.push(item.name)
                 })
                 return authorArr.join(' / ')
@@ -127,8 +135,9 @@ function setHotSong(data){
 
 
             $('.hotlist').eq(0).append($node)
-            
+
         }
     )
+    
 }
 

@@ -250,7 +250,18 @@ section.hot-header .title {
     background-size: 166px 97px;
 }
 section.hot-main > .hotlist {
-    margin-top: 18px;
+    margin-top: 2px;
+}
+section.hot-main > .hotlist >span {
+    display: block;
+    font-size: 17px;
+    float: left;
+    width: 20px;
+    height: 20px;
+    padding: 14px 10px;
+}
+section.hot-main > .hotlist .index:nth-child(-n+5){
+    color: #df3436;
 }
 
 section.hot-main > .hotlist > li > h3 {
@@ -270,7 +281,7 @@ section.hot-main > .hotlist > li >p {
 }
 section.hot-main > .hotlist > li {
     position: relative;
-    margin-left: 10px;
+    margin-left: 38px;
     padding-bottom: 4px;
     padding-top: 4px;
     border-bottom: 1px solid #e2e2e2;
