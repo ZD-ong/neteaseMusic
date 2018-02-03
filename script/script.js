@@ -1,19 +1,27 @@
 
 $.get("http://localhost:3000/top/playlist/highquality?limit=6").then( function(data){
-console.log('推荐歌单') 
+console.log('获取推荐歌单') 
 console.log(data)
 setHighQuality(data)
 })
+
 $.get("http://localhost:3000/personalized/newsong?limit=10").then( function(data){
-console.log('最新歌曲') 
+console.log('获取最新歌曲') 
 console.log(data)
 setNewSong(data)
 })
+
 $.get("http://localhost:3000/top/list?idx=1").then( function(data){
-console.log('热歌榜') 
+console.log('获取热歌榜') 
 console.log(data)
 setHotSong(data)
 })
+
+$.get("http://localhost:3000/playlist/detail?id=24381616").then( function(data){
+console.log('获取歌单详情') 
+console.log(data)
+})
+
 
 function setHighQuality(data){
     data.playlists.forEach(
@@ -80,37 +88,6 @@ function setNewSong(data){
 }
 
 
-// function setHotSong(data){
-//     data.playlist.tracks.forEach(
-//         function(song){
-//             var tpl = `<li class="hotSongList">
-//             <h3 class="songName"></h3>
-//             <p class="profile"><span class="author"></span> - <span class="album"></span></p>
-//             <a class="playButton" href="#">
-//                 <svg class="icon icon-play">
-//                     <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-play"></use>
-//                 </svg>
-//             </a>
-//         </li>`
-//             var $node = $(tpl)
-//             $node.find('.hotSongList .songName').text(song.name)
-//             $node.find('.hotSongList .profile .author').text(function(){
-//                 var authorArr = []
-//                 var hotSongAuthor = song.ar.name
-//                 console.log(hotSongAuthor)
-//                 hotSongAuthor.forEach(function(item){
-//                     authorArr.push(item.name)
-//                 })
-//                 return authorArr.join(' / ')
-//             })
-//             $node.find('.hotSongList .profile .album').text(song.m.name)
-            
-        
-            
-//             $('.hotlist').eq(0).append($node)
-//         }
-//     )
-// }
 function setHotSong(data){
     data.playlist.tracks.forEach(
         function(song){
