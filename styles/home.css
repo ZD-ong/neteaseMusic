@@ -300,10 +300,10 @@ section.hot-main > .hotlist .icon-play {
     vertical-align: middle;
     fill: #aaaaaa;
 }
-.page-main {
+/* .page-main {
     display: none;
 }
-/* .page-profile {
+.page-profile {
     display: none;
 } */
 .page-profile {
@@ -339,7 +339,7 @@ section.hot-main > .hotlist .icon-play {
     width: 343px;
     margin: 20px 16px;
 }
-.page-profile .profile .cover {
+.page-profile .profile .pro-cover {
     position: relative;
     height: 100%;
     width: 126px;
@@ -347,14 +347,14 @@ section.hot-main > .hotlist .icon-play {
     margin-right: 16px;
 }
 
-.page-profile .profile .cover span.listen {
+.page-profile .profile .pro-cover span.listen {
     position: absolute;
     right: 5px;
     top: 2px;
     color: white;
     text-shadow: 1px 0 0 rgba(0,0,0,.15);
 }
-.page-profile .profile .cover span.logo {
+.page-profile .profile .pro-cover span.logo {
     position: absolute;
     left: 0;
     top: 10px;
@@ -369,12 +369,12 @@ section.hot-main > .hotlist .icon-play {
     border-top-right-radius: 16px;
     border-bottom-right-radius: 16px;
 }
-.page-profile .profile .cover span icon-headset {
+.page-profile .profile .pro-cover span icon-headset {
     font-size: 12px;
     text-shadow: 1px 0 0 rgba(0,0,0,.15);
 }
 
-.page-profile .cover img{
+.page-profile .pro-cover .pro-img{
     height: 100%;
     width: 100%;
   }
@@ -403,7 +403,7 @@ section.hot-main > .hotlist .icon-play {
     display: flex;
     align-items: center;
 }
-.page-profile .title img {
+.page-profile .author-img {
     display: block;
     float: left;
     height: 30px;

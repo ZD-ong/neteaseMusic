@@ -51,12 +51,39 @@ function setHighQuality(data) {
 
             $('.songs').eq(0).append($node)
             $node.on('click', function () {
-                var _this = this
-                $.get("http://localhost:3000/playlist/detail?id=" + songId).then(function (data) {
+                $.get("http://localhost:3000/playlist/detail?id=" + songId).then(function (data2) {
 
                     console.log('获取歌单详情')
-                    console.log(data)
+                    console.log(data2)
+                    setSongListProfile(data2)
+                    function setSongListProfile(data2){
+                        console.log(data2.result.coverImgUrl)
+                        
+                        var tp = `
+                                <div class="pro-cover">
+                                    <img class="pro-img "src=" " alt="封面">
+                                    <span class="logo">歌单</span>
+                                    <span class="listen">
+                                        <i class="iconfont icon-headset"></i>
+                                    </span>
+                                </div>
+                                <div class="title">
+                                    <div class="title-wrap">
+                                        <h3>曾经等你下课的人，现在带你回家了吗？</h3>
+                                    </div>
+            
+                                    <div class="author clearfix">
+                                        <img class="author-img" src="//i.loli.net/2018/02/03/5a757abda5605.jpeg" alt="头像">
+                                        <p>作者</p>
+                                    </div>
+                                </div>`
+                    var $node2 = $(tp)
+                    $node2.find('.pro-img').attr('src', data2.result.coverImgUrl)
+                    $node2.find('.author-img').attr('src', data2.result.creator.avatarUrl)
+                    $('.profile-wrap').append($node2)
+                    }
                 })
+                
             })
 
         }
