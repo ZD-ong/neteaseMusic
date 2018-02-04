@@ -107,7 +107,9 @@ section.topbar > a::after {
 }
 
 
-
+section.playLists {
+    background-color: #ffffff;
+}
 section.playLists > ol.songs {
     display: flex;
     flex-wrap: wrap;
@@ -301,6 +303,9 @@ section.hot-main > .hotlist .icon-play {
 .page-main {
     display: none;
 }
+/* .page-profile {
+    display: none;
+} */
 .page-profile {
     z-index: 10;
     max-width: 100%;
@@ -446,7 +451,7 @@ section.hot-main > .hotlist .icon-play {
     text-align: right;
     color: #bbbbbb;
 }
-.page-profile .list h3 {
+.page-profile .list h3.profile-list {
     height: 23px;
     line-height: 23px;
     padding: 0 10px;
@@ -454,4 +459,45 @@ section.hot-main > .hotlist .icon-play {
     color: #666;
     background-color: #eeeff0;
 }
-
+section.list > .profile-songs > span {
+    display: block;
+    font-size: 17px;
+    float: left;
+    width: 20px;
+    height: 20px;
+    padding: 14px 10px;
+}
+section.list > .profile-songs > li > h3 {
+    font-size: 17px;
+    overflow: hidden;
+    text-overflow:ellipsis;
+    white-space: nowrap;
+    max-width: 325px;
+}
+section.list > .profile-songs > li >p {
+    font-size: 12px;
+    color: #888888;
+    overflow: hidden;
+    text-overflow:ellipsis;
+    white-space: nowrap;
+    max-width: 325px;
+}
+section.list > .profile-songs > li {
+    position: relative;
+    margin-left: 38px;
+    padding-bottom: 4px;
+    padding-top: 4px;
+    border-bottom: 1px solid #e2e2e2;
+}
+section.list > .profile-songs .playButton {
+    position: absolute;
+    right: 8px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+section.list > .profile-songs .icon-play {
+    width: 22px;
+    height: 22px;
+    vertical-align: middle;
+    fill: #aaaaaa;
+}
