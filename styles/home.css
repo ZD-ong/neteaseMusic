@@ -315,7 +315,7 @@ section.hot-main > .hotlist .icon-play {
     width: 100%;
     position: relative;
 }
-.page-profile .profile::before {
+/* .page-profile .profile::before {
     content: '';
     max-height: 186px;
     max-width: 100%;
@@ -328,6 +328,19 @@ section.hot-main > .hotlist .icon-play {
     bottom: 0;
     filter: blur(20px) brightness(80%);
     z-index: -1;
+} */
+.page-profile .profile {
+    position: relative;
+}
+.profile .background {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    z-index: -1;
+    background-size: cover;
+    filter: blur(20px) brightness(80%);
 }
 .page-profile .profile {
     height: 186px;
@@ -416,7 +429,7 @@ section.hot-main > .hotlist .icon-play {
     text-overflow:ellipsis;
     white-space: nowrap;
     margin-left: 8px;
-    color: #ffffff;
+    color: #aaaaaa;
 }
 .page-profile .tags {
     background-color: #ffffff;

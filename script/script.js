@@ -52,13 +52,11 @@ function setHighQuality(data) {
             $('.songs').eq(0).append($node)
             $node.on('click', function () {
                 $.get("http://localhost:3000/playlist/detail?id=" + songId).then(function (data2) {
-
+                    $('.profile-wrap').html('')
                     console.log('获取歌单详情')
                     console.log(data2)
                     setSongListProfile(data2)
                     function setSongListProfile(data2){
-                        console.log(data2.result.coverImgUrl)
-                        
                         var tp = `
                                 <div class="pro-cover">
                                     <img class="pro-img "src=" " alt="封面">
@@ -77,10 +75,15 @@ function setHighQuality(data) {
                                         <p>作者</p>
                                     </div>
                                 </div>`
+                    $('.profile .background').attr('style',"background-image:url(" + data2.result.coverImgUrl + ")")
                     var $node2 = $(tp)
                     $node2.find('.pro-img').attr('src', data2.result.coverImgUrl)
                     $node2.find('.author-img').attr('src', data2.result.creator.avatarUrl)
+                    $node2.find('.title-wrap h3').text(data2.result.name)
+                    $node2.find('.author p').text(data2.result.creator.nickname)
                     $('.profile-wrap').append($node2)
+                        
+                    
                     }
                 })
                 
