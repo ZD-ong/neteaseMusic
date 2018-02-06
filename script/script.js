@@ -53,10 +53,12 @@ function setHighQuality(data) {
             $node.on('click', function () {
                 $.get("http://localhost:3000/playlist/detail?id=" + songId).then(function (data2) {
                     $('.profile-wrap').html('')
+                    $('.page-profile .tag-item').html('')
                     console.log('获取歌单详情')
                     console.log(data2)
-                    setSongListProfile(data2)
-                    function setSongListProfile(data2){
+                    setProfileCover(data2)
+                    setProfileTag(data2)
+                    function setProfileCover(data2){
                         var tp = `
                                 <div class="pro-cover">
                                     <img class="pro-img "src=" " alt="封面">
@@ -82,9 +84,30 @@ function setHighQuality(data) {
                     $node2.find('.title-wrap h3').text(data2.result.name)
                     $node2.find('.author p').text(data2.result.creator.nickname)
                     $('.profile-wrap').append($node2)
-                        
-                    
                     }
+                    function setProfileTag(data2){
+                        var tp2 = `
+                        <h3 class="tags">标签：
+                        <span class="tag"></span>
+                        </h3>
+                        <p class="shortprofile">简介：幼儿园常常给你带糖果的TA还有印象吗?</p>
+                        <p class="shortp hide">青春哪有那么多的轰轰烈烈。不能说出口的喜欢，才是单薄青春里，最厚实的秘密。初恋是人生中重要的一页，不管它是否过去，我们依旧在执着地寻找和等待着，值得付出一切的悸动和心跳。</p>
+                        <span class="down">
+                            <i class="iconfont icon-down"></i>
+                       </span>
+                        `
+                        var $node3 = $(tp2)
+                        console.log(data2.result.tags)
+                        var arr = data2.result.tags
+                        arr.forEach(function(element) {
+                            console.log(element)
+                            $node3.find('.tag').text(element)
+                            $node3.find('.tags').text('<span class="tag"> ' + element + '</span>')
+                          })
+                        
+                        $('.page-profile .tag-item').append($node3)
+                    }
+                    
                 })
                 
             })
