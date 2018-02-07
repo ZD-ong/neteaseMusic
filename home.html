@@ -318,23 +318,7 @@
             $li.addClass('active').siblings().removeClass('active')//取消被点击元素兄弟元素的样式
             $('.tab-content').children().eq(index).addClass('active').siblings().removeClass('active')//给被点击元素添加样式
         })
-        $('.down').on('click', function(){
-            let $shortp = $('.shortp')
-            let $updown = $('.down .iconfont')
-            if($shortp.hasClass('hide')){
-                $shortp.removeClass('hide').addClass('show')
-            }
-            else if($shortp.hasClass('show')){
-                $shortp.removeClass('show').addClass('hide')
-            }
-            if($updown.hasClass('icon-down')){
-                $updown.removeClass('icon-down').addClass('icon-up')
-            }else if($updown.hasClass('icon-up')){
-                $updown.removeClass('icon-up').addClass('icon-down')
-            }
-            
-            
-        })
+        
     </script>
     <script src="./script/script.js"></script>
 </body>

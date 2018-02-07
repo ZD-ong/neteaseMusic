@@ -88,7 +88,6 @@ function setHighQuality(data) {
                     function setProfileTag(data2){
                         var tp2 = `
                         <h3 class="tags">标签：
-                        <span class="tag"></span>
                         </h3>
                         <p class="shortprofile">简介：幼儿园常常给你带糖果的TA还有印象吗?</p>
                         <p class="shortp hide">青春哪有那么多的轰轰烈烈。不能说出口的喜欢，才是单薄青春里，最厚实的秘密。初恋是人生中重要的一页，不管它是否过去，我们依旧在执着地寻找和等待着，值得付出一切的悸动和心跳。</p>
@@ -97,16 +96,30 @@ function setHighQuality(data) {
                        </span>
                         `
                         var $node3 = $(tp2)
-                        console.log(data2.result.tags)
                         var arr = data2.result.tags
                         arr.forEach(function(element) {
-                            console.log(element)
-                            $node3.find('.tag').text(element)
-                            $node3.find('.tags').text('<span class="tag"> ' + element + '</span>')
+                            $node3.first().append('<span class="tag"> ' + element + '</span>')
                           })
                         
                         $('.page-profile .tag-item').append($node3)
+                        $('.down').on('click', function(){
+                            let $shortp = $('.shortp')
+                            let $updown = $('.down .iconfont')
+                            if($shortp.hasClass('hide')){
+                                $shortp.removeClass('hide').addClass('show')
+                            }
+                            else if($shortp.hasClass('show')){
+                                $shortp.removeClass('show').addClass('hide')
+                            }
+                            if($updown.hasClass('icon-down')){
+                                $updown.removeClass('icon-down').addClass('icon-up')
+                            }else if($updown.hasClass('icon-up')){
+                                $updown.removeClass('icon-up').addClass('icon-down')
+                            }
+                        })
+                        
                     }
+
                     
                 })
                 
