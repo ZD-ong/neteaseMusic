@@ -58,7 +58,7 @@ function setHighQuality(data) {
                     console.log(data2)
                     setProfileCover(data2)
                     setProfileTag(data2)
-                    function setProfileCover(data2){
+                    function setProfileCover(data2) {
                         var tp = `
                                 <div class="pro-cover">
                                     <img class="pro-img "src=" " alt="封面">
@@ -77,15 +77,15 @@ function setHighQuality(data) {
                                         <p>作者</p>
                                     </div>
                                 </div>`
-                    $('.profile .background').attr('style',"background-image:url(" + data2.result.coverImgUrl + ")")
-                    var $node2 = $(tp)
-                    $node2.find('.pro-img').attr('src', data2.result.coverImgUrl)
-                    $node2.find('.author-img').attr('src', data2.result.creator.avatarUrl)
-                    $node2.find('.title-wrap h3').text(data2.result.name)
-                    $node2.find('.author p').text(data2.result.creator.nickname)
-                    $('.profile-wrap').append($node2)
+                        $('.profile .background').attr('style', "background-image:url(" + data2.result.coverImgUrl + ")")
+                        var $node2 = $(tp)
+                        $node2.find('.pro-img').attr('src', data2.result.coverImgUrl)
+                        $node2.find('.author-img').attr('src', data2.result.creator.avatarUrl)
+                        $node2.find('.title-wrap h3').text(data2.result.name)
+                        $node2.find('.author p').text(data2.result.creator.nickname)
+                        $('.profile-wrap').append($node2)
                     }
-                    function setProfileTag(data2){
+                    function setProfileTag(data2) {
                         var tp2 = `
                         <h3 class="tags">标签：
                         </h3>
@@ -97,32 +97,46 @@ function setHighQuality(data) {
                         `
                         var $node3 = $(tp2)
                         var arr = data2.result.tags
-                        arr.forEach(function(element) {
+                        arr.forEach(function (element) {
                             $node3.first().append('<span class="tag"> ' + element + '</span>')
-                          })
-                        
+                        })
+
                         $('.page-profile .tag-item').append($node3)
-                        $('.down').on('click', function(){
+                        $('.down').on('click', function () {
                             let $shortp = $('.shortp')
                             let $updown = $('.down .iconfont')
-                            if($shortp.hasClass('hide')){
+                            if ($shortp.hasClass('hide')) {
                                 $shortp.removeClass('hide').addClass('show')
                             }
-                            else if($shortp.hasClass('show')){
+                            else if ($shortp.hasClass('show')) {
                                 $shortp.removeClass('show').addClass('hide')
                             }
-                            if($updown.hasClass('icon-down')){
+                            if ($updown.hasClass('icon-down')) {
                                 $updown.removeClass('icon-down').addClass('icon-up')
-                            }else if($updown.hasClass('icon-up')){
+                            } else if ($updown.hasClass('icon-up')) {
                                 $updown.removeClass('icon-up').addClass('icon-down')
                             }
                         })
-                        
-                    }
 
-                    
+                    }
+                    function setProfileSongs(data2) {
+                        var tp3 = `<span class="index">01</span>
+                        <li class="proSongList">
+                            <h3 class="proSongName">歌名</h3>
+                            <p class="pro-profile">作者
+                                <span class="hotAuthor"></span> -
+                                <span class="hotAlbum">专辑</span>
+                            </p>
+                            <a class="playButton" href="#">
+                                <svg class="icon icon-play">
+                                    <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-play"></use>
+                                </svg>
+                            </a>
+                        </li>`
+                        var $node4 = $(tp3)
+                    }
                 })
-                
+
             })
 
         }
@@ -165,13 +179,14 @@ function setNewSong(data) {
 
 function setHotSong(data) {
     var index = 1
-    data.playlist.tracks.forEach(
+    var tracks = data.playlist.tracks.slice(0, 20)
+    tracks.forEach(
         function (song) {
-            if(index < 10){
+            if (index < 10) {
                 index = '0' + index
             }
             var tpl =
-            `
+                `
             <span class="index">${index}</span>
             <li class="hotSongList">
                 <h3 class="hotSongName"></h3>
@@ -183,12 +198,12 @@ function setHotSong(data) {
                 </a>
             </li>
             `
-            
+
             var $node = $(tpl)
             $node.find('.hotSongName').text(song.name)
-            
+
             index = parseInt(index) + 1
-            
+
             $node.find('.hotAuthor').text(function () {
                 var authorArr = []
                 var hotSongAuthor = song.ar
@@ -204,5 +219,5 @@ function setHotSong(data) {
 
         }
     )
-    
+
 }
