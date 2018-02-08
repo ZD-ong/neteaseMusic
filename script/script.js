@@ -143,13 +143,14 @@ function setHighQuality(data) {
                         var tp2 = `
                         <h3 class="tags">标签：
                         </h3>
-                        <p class="shortprofile">简介：幼儿园常常给你带糖果的TA还有印象吗?</p>
-                        <p class="shortp hide">青春哪有那么多的轰轰烈烈。不能说出口的喜欢，才是单薄青春里，最厚实的秘密。初恋是人生中重要的一页，不管它是否过去，我们依旧在执着地寻找和等待着，值得付出一切的悸动和心跳。</p>
+                        <p class="shortp hide"></p>
                         <span class="down">
                             <i class="iconfont icon-down"></i>
                        </span>
                         `
                         var $node3 = $(tp2)
+                        console.log($node3.eq(2))
+                        $node3.eq(2).text('简介：' + data2.result.description)
                         var arr = data2.result.tags
                         arr.forEach(function (element) {
                             $node3.first().append('<span class="tag"> ' + element + '</span>')
@@ -196,7 +197,6 @@ function setHighQuality(data) {
                         </li>`
                                 var $node4 = $(tp3)
                                 $node4.find('.proSongName').text(song.name)
-
                                 index = parseInt(index) + 1
 
                                 $node4.find('.proAuthor').text(function () {
