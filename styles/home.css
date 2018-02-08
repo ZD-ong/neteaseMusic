@@ -161,7 +161,7 @@ section.songs > .list > li > h3 {
     overflow: hidden;
     text-overflow:ellipsis;
     white-space: nowrap;
-    max-width: 325px;
+    max-width: 295px;
 }
 section.songs > .list > li >p {
     font-size: 12px;
@@ -169,7 +169,7 @@ section.songs > .list > li >p {
     overflow: hidden;
     text-overflow:ellipsis;
     white-space: nowrap;
-    max-width: 325px;
+    max-width: 300px;
 }
 section.songs > .list > li {
     position: relative;
@@ -272,7 +272,7 @@ section.hot-main > .hotlist > li > h3 {
     overflow: hidden;
     text-overflow:ellipsis;
     white-space: nowrap;
-    max-width: 325px;
+    max-width: 295px;
 }
 section.hot-main > .hotlist > li >p {
     font-size: 12px;
@@ -280,7 +280,7 @@ section.hot-main > .hotlist > li >p {
     overflow: hidden;
     text-overflow:ellipsis;
     white-space: nowrap;
-    max-width: 325px;
+    max-width: 300px;
 }
 section.hot-main > .hotlist > li {
     position: relative;
@@ -503,7 +503,7 @@ section.list > .profile-songs > li > h3 {
     overflow: hidden;
     text-overflow:ellipsis;
     white-space: nowrap;
-    max-width: 325px;
+    max-width: 295px;
 }
 section.list > .profile-songs > li >p {
     font-size: 12px;
@@ -511,7 +511,7 @@ section.list > .profile-songs > li >p {
     overflow: hidden;
     text-overflow:ellipsis;
     white-space: nowrap;
-    max-width: 325px;
+    max-width: 300px;
 }
 section.list > .profile-songs > li {
     position: relative;
@@ -539,6 +539,7 @@ section.list > .profile-songs .icon-play {
     vertical-align: middle;
     fill: #aaaaaa;
 }
+
 .page-profile .footer {
     position: absolute;
     width: 100%;

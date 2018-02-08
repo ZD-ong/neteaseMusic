@@ -54,6 +54,9 @@ function setHighQuality(data) {
                 $.get("http://localhost:3000/playlist/detail?id=" + songId).then(function (data2) {
                     $('.profile-wrap').html('')
                     $('.page-profile .tag-item').html('')
+                    $('.profile-songs').html('')
+
+
                     console.log('获取歌单详情')
                     console.log(data2)
                     setProfileCover(data2)
@@ -64,7 +67,7 @@ function setHighQuality(data) {
                                     <img class="pro-img "src=" " alt="封面">
                                     <span class="logo">歌单</span>
                                     <span class="listen">
-                                        <i class="iconfont icon-headset"></i>
+                                        <i class="iconfont icon-headset .play-count"></i>
                                     </span>
                                 </div>
                                 <div class="title">
@@ -83,6 +86,17 @@ function setHighQuality(data) {
                         $node2.find('.author-img').attr('src', data2.result.creator.avatarUrl)
                         $node2.find('.title-wrap h3').text(data2.result.name)
                         $node2.find('.author p').text(data2.result.creator.nickname)
+                        // for (var i = 0; i <= $('.play-count').length; i++) {
+                        //     var songId = song.id
+                        //     var count = song.playCount
+                        //     if (count > 100000) {
+                        //         $node.find('.listen .iconfont').text(parseInt(song.playCount / 10000) + '万')
+                        //     } else {
+                        //         $node.find('.listen .iconfont').text(song.playCount)
+                        //     }
+                        // }
+                        console.log(song.id)
+                        console.log(song.playCount)
                         $('.profile-wrap').append($node2)
                     }
                     function setProfileTag(data2) {
@@ -130,9 +144,9 @@ function setHighQuality(data) {
                                 var tp3 = `<span class="index">${index}</span>
                         <li class="proSongList">
                             <h3 class="proSongName"></h3>
-                            <p class="pro-profile">作者
-                                <span class="hotAuthor"></span> -
-                                <span class="hotAlbum">专辑</span>
+                            <p class="pro-profile">
+                                <span class="proAuthor"></span> -
+                                <span class="proAlbum"></span>
                             </p>
                             <a class="playButton" href="#">
                                 <svg class="icon icon-play">
@@ -144,6 +158,18 @@ function setHighQuality(data) {
                         $node4.find('.proSongName').text(song.name)
 
                         index = parseInt(index) + 1
+
+                        $node4.find('.proAuthor').text(function () {
+                            var authorArr = []
+                            var proSongAuthor = song.artists
+                            proSongAuthor.forEach(function (item) {
+                                authorArr.push(item.name)
+                            })
+                            return authorArr.join(' / ')
+                        })
+
+                        $node4.find('.proAlbum').text(song.album.name)
+
 
                         $('.profile-songs').append($node4)
                             }
