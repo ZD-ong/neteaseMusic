@@ -51,7 +51,53 @@ function setHighQuality(data) {
 
             $('.songs').eq(0).append($node)
             $node.on('click', function () {
+                $('.page-main').addClass('hide')
+                $('.page-profile').removeClass('hide')
+
+                var mybody = document.getElementsByTagName('body')[0]
+
+
+
+                //滑动处理
+
+                var startX, startY, moveEndX, moveEndY, X, Y
+
+                mybody.addEventListener('touchstart', function (e) {
+
+                    e.preventDefault()
+
+                    startX = e.touches[0].pageX
+
+                    startY = e.touches[0].pageY
+
+                }, false)
+
+                mybody.addEventListener('touchmove', function (e) {
+
+                    e.preventDefault()
+
+                    moveEndX = e.changedTouches[0].pageX
+
+                    moveEndY = e.changedTouches[0].pageY
+
+                    X = moveEndX - startX
+
+                    Y = moveEndY - startY
+
+
+
+                    if (Math.abs(X) > Math.abs(Y) && X > 100) {
+
+                        $('.page-main').removeClass('hide')
+                        $('.page-profile').addClass('hide')
+
+                    }
+
+
+                })
+
                 $.get("http://localhost:3000/playlist/detail?id=" + songId).then(function (data2) {
+
                     $('.profile-wrap').html('')
                     $('.page-profile .tag-item').html('')
                     $('.profile-songs').html('')
@@ -131,7 +177,7 @@ function setHighQuality(data) {
                     function setProfileSongs(data2) {
                         var index = 1
                         data2.result.tracks.slice(0, 20).forEach(
-                            function (song){
+                            function (song) {
                                 if (index < 10) {
                                     index = '0' + index
                                 }
@@ -148,28 +194,28 @@ function setHighQuality(data) {
                                 </svg>
                             </a>
                         </li>`
-                        var $node4 = $(tp3)
-                        $node4.find('.proSongName').text(song.name)
+                                var $node4 = $(tp3)
+                                $node4.find('.proSongName').text(song.name)
 
-                        index = parseInt(index) + 1
+                                index = parseInt(index) + 1
 
-                        $node4.find('.proAuthor').text(function () {
-                            var authorArr = []
-                            var proSongAuthor = song.artists
-                            proSongAuthor.forEach(function (item) {
-                                authorArr.push(item.name)
-                            })
-                            return authorArr.join(' / ')
-                        })
+                                $node4.find('.proAuthor').text(function () {
+                                    var authorArr = []
+                                    var proSongAuthor = song.artists
+                                    proSongAuthor.forEach(function (item) {
+                                        authorArr.push(item.name)
+                                    })
+                                    return authorArr.join(' / ')
+                                })
 
-                        $node4.find('.proAlbum').text(song.album.name)
+                                $node4.find('.proAlbum').text(song.album.name)
 
 
-                        $('.profile-songs').append($node4)
+                                $('.profile-songs').append($node4)
                             }
                         )
-                        
-                        
+
+
                     }
                 })
 
