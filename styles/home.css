@@ -257,6 +257,7 @@ section.hot-main > .hotlist {
 section.hot-main > .hotlist >span {
     display: block;
     font-size: 17px;
+    color: #888888;
     float: left;
     width: 20px;
     height: 20px;
@@ -491,6 +492,7 @@ section.hot-main > .hotlist .icon-play {
 section.list > .profile-songs > span {
     display: block;
     font-size: 17px;
+    color: #888888;
     float: left;
     width: 20px;
     height: 20px;

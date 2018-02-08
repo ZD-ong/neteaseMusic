@@ -119,10 +119,17 @@ function setHighQuality(data) {
                         })
 
                     }
+                    setProfileSongs(data2)
                     function setProfileSongs(data2) {
-                        var tp3 = `<span class="index">01</span>
+                        var index = 1
+                        data2.result.tracks.slice(0, 20).forEach(
+                            function (song){
+                                if (index < 10) {
+                                    index = '0' + index
+                                }
+                                var tp3 = `<span class="index">${index}</span>
                         <li class="proSongList">
-                            <h3 class="proSongName">歌名</h3>
+                            <h3 class="proSongName"></h3>
                             <p class="pro-profile">作者
                                 <span class="hotAuthor"></span> -
                                 <span class="hotAlbum">专辑</span>
@@ -134,6 +141,15 @@ function setHighQuality(data) {
                             </a>
                         </li>`
                         var $node4 = $(tp3)
+                        $node4.find('.proSongName').text(song.name)
+
+                        index = parseInt(index) + 1
+
+                        $('.profile-songs').append($node4)
+                            }
+                        )
+                        
+                        
                     }
                 })
 
