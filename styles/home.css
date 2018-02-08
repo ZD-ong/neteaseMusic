@@ -368,6 +368,10 @@ section.hot-main > .hotlist .icon-play {
     color: white;
     text-shadow: 1px 0 0 rgba(0,0,0,.15);
 }
+.page-profile .profile .listen .iconfont {
+    font-size: 12px;
+    box-shadow: 1px 0 0 rgba(0,0,0,.15);
+}
 .page-profile .profile .pro-cover span.logo {
     position: absolute;
     left: 0;

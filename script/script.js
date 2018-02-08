@@ -67,7 +67,7 @@ function setHighQuality(data) {
                                     <img class="pro-img "src=" " alt="封面">
                                     <span class="logo">歌单</span>
                                     <span class="listen">
-                                        <i class="iconfont icon-headset .play-count"></i>
+                                        <i class="iconfont icon-headset"></i>
                                     </span>
                                 </div>
                                 <div class="title">
@@ -86,17 +86,11 @@ function setHighQuality(data) {
                         $node2.find('.author-img').attr('src', data2.result.creator.avatarUrl)
                         $node2.find('.title-wrap h3').text(data2.result.name)
                         $node2.find('.author p').text(data2.result.creator.nickname)
-                        // for (var i = 0; i <= $('.play-count').length; i++) {
-                        //     var songId = song.id
-                        //     var count = song.playCount
-                        //     if (count > 100000) {
-                        //         $node.find('.listen .iconfont').text(parseInt(song.playCount / 10000) + '万')
-                        //     } else {
-                        //         $node.find('.listen .iconfont').text(song.playCount)
-                        //     }
-                        // }
-                        console.log(song.id)
-                        console.log(song.playCount)
+                        if (song.playCount > 100000) {
+                            $node2.find('.listen .iconfont').text(parseInt(song.playCount / 10000) + '万')
+                        } else {
+                            $node2.find('.listen .iconfont').text(song.playCount)
+                        }
                         $('.profile-wrap').append($node2)
                     }
                     function setProfileTag(data2) {
