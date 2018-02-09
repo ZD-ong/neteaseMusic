@@ -250,7 +250,12 @@ function setNewSong(data) {
                 return authorArr.join(' / ')
             })
             $node.find('.profile .album').text(song.song.name)
-
+            $node.on('click', function () {
+                var id = song.song.id
+                var url ="http://music.163.com/song/media/outer/url?id=" + id + ".mp3"
+                console.log(song.song.id)
+                // $('.playaudio').attr('src', url)
+            })
 
 
             $('.list').eq(0).append($node)
