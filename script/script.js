@@ -254,7 +254,7 @@ function setNewSong(data) {
                 var id = song.song.id
                 var url ="http://music.163.com/song/media/outer/url?id=" + id + ".mp3"
                 console.log(song.song.id)
-                // $('.playaudio').attr('src', url)
+                $('audio').attr('src', url)
                 $('.page-main').addClass('hide')
                 $('.page-record').removeClass('hide')
 
@@ -303,11 +303,21 @@ function setNewSong(data) {
                 })
 
             })
+            
+            
 
-
-            $('.list').eq(0).append($node)
+            $('.list').append($node)
         }
     )
+    $('section.disk .circle').on('click', function(){
+        if(document.getElementById('playaudio').paused){
+            document.getElementById('playaudio').play()
+            $('section.disk .circle .button').addClass('hide')
+        }else{
+            document.getElementById('playaudio').pause()
+            $('section.disk .circle .button').removeClass('hide')
+        }
+    })
 }
 
 
@@ -351,7 +361,7 @@ function setHotSong(data) {
             $node.on('click', function () {
                 var id = song.id
                 var url ="http://music.163.com/song/media/outer/url?id=" + id + ".mp3"
-                // $('.playaudio').attr('src', url)
+                // $('audio').attr('src', url)
                 $('.page-main').addClass('hide')
                 $('.page-record').removeClass('hide')
 

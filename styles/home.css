@@ -638,8 +638,14 @@ section.disk .circle > img {
     border-radius: 50%;
     border: none;
 }
-section.disk.circle.playing >img {
-    
+section.disk .circle .button i {
+    font-size: 56px;
+    position: absolute;
+    left: 120px;
+    top: 120px;
+    color: #ffffff;
+    z-index: 1;
+
 }
 section.disk .circle.playing > img,
 section.disk .circle.playing::after {
