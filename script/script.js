@@ -347,7 +347,59 @@ function setHotSong(data) {
                 return authorArr.join(' / ')
             })
             $node.find('.hotAlbum').text(song.al.name)
+            
+            $node.on('click', function () {
+                var id = song.id
+                var url ="http://music.163.com/song/media/outer/url?id=" + id + ".mp3"
+                // $('.playaudio').attr('src', url)
+                $('.page-main').addClass('hide')
+                $('.page-record').removeClass('hide')
 
+                $('.record-cover').attr('src',song.al.picUrl)
+
+                var mybody = document.getElementsByTagName('body')[0]
+
+
+
+                //滑动处理
+
+                var startX, startY, moveEndX, moveEndY, X, Y
+
+                mybody.addEventListener('touchstart', function (e) {
+
+                    e.preventDefault()
+
+                    startX = e.touches[0].pageX
+
+                    startY = e.touches[0].pageY
+
+                }, false)
+
+                mybody.addEventListener('touchmove', function (e) {
+
+                    e.preventDefault()
+
+                    moveEndX = e.changedTouches[0].pageX
+
+                    moveEndY = e.changedTouches[0].pageY
+
+                    X = moveEndX - startX
+
+                    Y = moveEndY - startY
+
+
+
+                    if (Math.abs(X) > Math.abs(Y) && X > 100) {
+
+                        $('.page-mian').removeClass('hide')
+                        $('.page-record').addClass('hide')
+
+                    }
+
+
+                })
+
+            })
 
             $('.hotlist').eq(0).append($node)
 
