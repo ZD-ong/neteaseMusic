@@ -255,6 +255,8 @@ function setNewSong(data) {
                 var url ="http://music.163.com/song/media/outer/url?id=" + id + ".mp3"
                 console.log(song.song.id)
                 // $('.playaudio').attr('src', url)
+
+
             })
 
 
