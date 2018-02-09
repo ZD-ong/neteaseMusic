@@ -260,6 +260,48 @@ function setNewSong(data) {
 
                 $('.record-cover').attr('src',song.song.album.picUrl)
 
+                var mybody = document.getElementsByTagName('body')[0]
+
+
+
+                //滑动处理
+
+                var startX, startY, moveEndX, moveEndY, X, Y
+
+                mybody.addEventListener('touchstart', function (e) {
+
+                    e.preventDefault()
+
+                    startX = e.touches[0].pageX
+
+                    startY = e.touches[0].pageY
+
+                }, false)
+
+                mybody.addEventListener('touchmove', function (e) {
+
+                    e.preventDefault()
+
+                    moveEndX = e.changedTouches[0].pageX
+
+                    moveEndY = e.changedTouches[0].pageY
+
+                    X = moveEndX - startX
+
+                    Y = moveEndY - startY
+
+
+
+                    if (Math.abs(X) > Math.abs(Y) && X > 100) {
+
+                        $('.page-main').removeClass('hide')
+                        $('.page-record').addClass('hide')
+
+                    }
+
+
+                })
+
             })
 
 
