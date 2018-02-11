@@ -253,10 +253,39 @@ function setNewSong(data) {
             $node.on('click', function () {
                 var id = song.song.id
                 var url ="http://music.163.com/song/media/outer/url?id=" + id + ".mp3"
-                console.log(song.song.id)
                 $('audio').attr('src', url)
                 $('.page-main').addClass('hide')
                 $('.page-record').removeClass('hide')
+
+                $.get("http://localhost:3000/lyric?id="+id).then(function(data){
+                    var lyric = data.lrc.lyric
+                    var arr = []
+                    var parts = lyric.split('\n')
+                    parts.forEach(function(string,index){
+                        var xxx = string.split(']')
+                        xxx[0] = xxx[0].substring(1)
+                        var regex = /(\d+):([\d.]+)/
+                        var matches = xxx[0].match(regex)
+                        var minute = +matches[1]
+                        var second = +matches[2]
+                        arr.push({
+                            time: minute*60+second,
+                            lyric: xxx[1]
+                        })
+                    })
+                    setInterval(function(){
+                        var current = document.getElementById('playaudio').currentTime
+                        for(var i = 0; i < arr.length; i++){
+                            if(i === arr.length -1){
+                                console.log(arr[i].lyric)
+                            }
+                            else if(arr[i].time <= current && array[i + 1].time > current){
+                                console.log(arr[i].lyric)
+                                break;
+                            }
+                        }
+                    },1000)
+                })
 
                 $('.record-cover').attr('src',song.song.album.picUrl)
 
