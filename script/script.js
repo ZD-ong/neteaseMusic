@@ -256,7 +256,7 @@ function setNewSong(data) {
                 $('audio').attr('src', url)
                 $('.page-main').addClass('hide')
                 $('.page-record').removeClass('hide')
-                // $('.lyric-wrap h1').text(song.name)
+                $('.lyric-wrap h1').text(song.song.name)
 
                 $.get("http://localhost:3000/lyric?id=" + id).then(function (data) {
                     var lyric = data.lrc.lyric
