@@ -259,32 +259,44 @@ function setNewSong(data) {
 
                 $.get("http://localhost:3000/lyric?id="+id).then(function(data){
                     var lyric = data.lrc.lyric
-                    var arr = []
+                    var array = []
+                    //将换行符去掉
                     var parts = lyric.split('\n')
                     parts.forEach(function(string,index){
+                        
+                        //将时间和歌词变成数组
                         var xxx = string.split(']')
+                        //将时间前面多余的的“[”去掉,提取“[”之后的所有字符串
                         xxx[0] = xxx[0].substring(1)
-                        var regex = /(\d+):([\d.]+)/
-                        var matches = xxx[0].match(regex)
-                        var minute = +matches[1]
-                        var second = +matches[2]
-                        arr.push({
+                        // var regex = /(\d+):([\d.]+)/
+                        
+                        var matches = xxx[0].match(/(\d+):([\d.]+)/)
+                        //由于开头和结尾有两个null，所以判断是否匹配到matches再push进array
+                        if(!matches) return
+                        var minute = matches[1]
+                        var second = matches[2]
+                       
+                        array.push({
                             time: minute*60+second,
                             lyric: xxx[1]
                         })
+                        
+                        
+                        
                     })
+                    
                     setInterval(function(){
                         var current = document.getElementById('playaudio').currentTime
-                        for(var i = 0; i < arr.length; i++){
-                            if(i === arr.length -1){
-                                console.log(arr[i].lyric)
+                        for(var i = 0; i < array.length; i++){
+                            if(i === array.length -1){
+                                console.log(array[i].lyric)
                             }
-                            else if(arr[i].time <= current && array[i + 1].time > current){
-                                console.log(arr[i].lyric)
+                            else if(array[i].time <= current && array[i + 1].time > current){
+                                console.log(array[i].lyric)
                                 break;
                             }
                         }
-                    },1000)
+                    },500)
                 })
 
                 $('.record-cover').attr('src',song.song.album.picUrl)
