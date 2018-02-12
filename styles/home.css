@@ -690,4 +690,26 @@ section.action .download {
         100% {
             transform: rotateZ(360deg);
         }
-    }
+}
+section.lyric-wrap {
+    color: #AEABAC;
+    text-align: center;
+    line-height: 2.5;
+    margin-top: 32px;
+}
+section.lyric-wrap h1 {
+    color: #ffffff;
+    font-size: 18px;
+}
+section.lyric-wrap .lines p {
+    font-size: 14px;
+    line-height: 32px;
+}
+section.lyric-wrap .lyric {
+    height: 96px;
+    border: 1px solid white;
+    overflow: hidden;
+}
+section.lyric-wrap .lines p.active {
+    color: #eeeeee;
+}

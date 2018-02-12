@@ -252,54 +252,57 @@ function setNewSong(data) {
             $node.find('.profile .album').text(song.song.name)
             $node.on('click', function () {
                 var id = song.song.id
-                var url ="http://music.163.com/song/media/outer/url?id=" + id + ".mp3"
+                var url = "http://music.163.com/song/media/outer/url?id=" + id + ".mp3"
                 $('audio').attr('src', url)
                 $('.page-main').addClass('hide')
                 $('.page-record').removeClass('hide')
 
-                $.get("http://localhost:3000/lyric?id="+id).then(function(data){
+                $.get("http://localhost:3000/lyric?id=" + id).then(function (data) {
                     var lyric = data.lrc.lyric
                     var array = []
                     //将换行符去掉
                     var parts = lyric.split('\n')
-                    parts.forEach(function(string,index){
-                        
+                    parts.forEach(function (string, index) {
+
                         //将时间和歌词变成数组
                         var xxx = string.split(']')
                         //将时间前面多余的的“[”去掉,提取“[”之后的所有字符串
                         xxx[0] = xxx[0].substring(1)
                         // var regex = /(\d+):([\d.]+)/
-                        
+
                         var matches = xxx[0].match(/(\d+):([\d.]+)/)
+
                         //由于开头和结尾有两个null，所以判断是否匹配到matches再push进array
-                        if(!matches) return
-                        var minute = matches[1]
-                        var second = matches[2]
-                       
-                        array.push({
-                            time: minute*60+second,
-                            lyric: xxx[1]
-                        })
-                        
-                        
-                        
+                        if (matches) {
+                            var minute = matches[1]
+                            var second = matches[2]
+                            array.push({
+                                time: minute * 60 + second,
+                                lyric: xxx[1]
+                            })
+                        }
+
+
                     })
                     
-                    setInterval(function(){
+                    setInterval(function () {
                         var current = document.getElementById('playaudio').currentTime
-                        for(var i = 0; i < array.length; i++){
-                            if(i === array.length -1){
-                                console.log(array[i].lyric)
+                        for (var i = 0; i < array.length; i++) {
+                            var $p = $('<p/>')
+                            if (i === array.length - 1) {
+                                $p.attr('data-time',array[i].time).text(array[i].lyric)
                             }
-                            else if(array[i].time <= current && array[i + 1].time > current){
-                                console.log(array[i].lyric)
+                            else if (array[i].time <= current && array[i + 1].time > current){
+                                $p.attr('data-time',array[i].time).text(array[i].lyric)
                                 break;
                             }
                         }
-                    },500)
+                        $p.appendTo($('.lyric .lines'))
+                    }, 5000)
+                    
                 })
 
-                $('.record-cover').attr('src',song.song.album.picUrl)
+                $('.record-cover').attr('src', song.song.album.picUrl)
 
                 var mybody = document.getElementsByTagName('body')[0]
 
@@ -344,17 +347,17 @@ function setNewSong(data) {
                 })
 
             })
-            
-            
+
+
 
             $('.list').append($node)
         }
     )
-    $('section.disk .circle').on('click', function(){
-        if(document.getElementById('playaudio').paused){
+    $('section.disk .circle').on('click', function () {
+        if (document.getElementById('playaudio').paused) {
             document.getElementById('playaudio').play()
             $('section.disk .circle .button').addClass('hide')
-        }else{
+        } else {
             document.getElementById('playaudio').pause()
             $('section.disk .circle .button').removeClass('hide')
         }
@@ -398,15 +401,15 @@ function setHotSong(data) {
                 return authorArr.join(' / ')
             })
             $node.find('.hotAlbum').text(song.al.name)
-            
+
             $node.on('click', function () {
                 var id = song.id
-                var url ="http://music.163.com/song/media/outer/url?id=" + id + ".mp3"
+                var url = "http://music.163.com/song/media/outer/url?id=" + id + ".mp3"
                 // $('audio').attr('src', url)
                 $('.page-main').addClass('hide')
                 $('.page-record').removeClass('hide')
 
-                $('.record-cover').attr('src',song.al.picUrl)
+                $('.record-cover').attr('src', song.al.picUrl)
 
                 var mybody = document.getElementsByTagName('body')[0]
 
