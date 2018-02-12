@@ -256,6 +256,7 @@ function setNewSong(data) {
                 $('audio').attr('src', url)
                 $('.page-main').addClass('hide')
                 $('.page-record').removeClass('hide')
+                // $('.lyric-wrap h1').text(song.name)
 
                 $.get("http://localhost:3000/lyric?id=" + id).then(function (data) {
                     var lyric = data.lrc.lyric
@@ -274,21 +275,21 @@ function setNewSong(data) {
 
                         //由于开头和结尾有两个null，所以判断是否匹配到matches再push进array
                         if (matches) {
-                            var minute = matches[1]
-                            var second = matches[2]
+                            var minute = +matches[1]
+                            var second = +matches[2]
                             array.push({
-                                time: minute * 60 + second,
+                                time: minute*60+second,
                                 lyric: xxx[1]
                             })
                         }
 
 
                     })
-                    
+                    var $p = $('<p/>')
                     setInterval(function () {
                         var current = document.getElementById('playaudio').currentTime
-                        for (var i = 0; i < array.length; i++) {
-                            var $p = $('<p/>')
+                        for(var i = 0; i < array.length; i++) {
+                            
                             if (i === array.length - 1) {
                                 $p.attr('data-time',array[i].time).text(array[i].lyric)
                             }
@@ -297,9 +298,9 @@ function setNewSong(data) {
                                 break;
                             }
                         }
-                        $p.appendTo($('.lyric .lines'))
-                    }, 5000)
-                    
+                        
+                    }, 1000)
+                    $p.appendTo($('.lyric .lines'))
                 })
 
                 $('.record-cover').attr('src', song.song.album.picUrl)

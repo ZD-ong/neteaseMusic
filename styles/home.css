@@ -707,7 +707,6 @@ section.lyric-wrap .lines p {
 }
 section.lyric-wrap .lyric {
     height: 96px;
-    border: 1px solid white;
     overflow: hidden;
 }
 section.lyric-wrap .lines p.active {
