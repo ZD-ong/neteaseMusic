@@ -8,8 +8,8 @@
     <link rel="stylesheet" href="//at.alicdn.com/t/font_540972_i1f2siav6a6vfgvi.css">
     <link rel="stylesheet" href="./styles/reset.css">
     <link rel="stylesheet" href="./styles/home.css">
-    <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
-
+    <script src="http://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+        crossorigin="anonymous"></script>
     <title>163Music</title>
 </head>
 
@@ -172,18 +172,18 @@
             <div class="profile">
                 <div class="background"></div>
                 <div class="profile-wrap clearfix">
-                    
+
                 </div>
 
             </div>
         </section>
         <section class="tag-item clearfix">
-            
+
         </section>
         <section class="list">
             <h3 class="profile-list">歌曲列表</h3>
             <ol class="profile-songs">
-                
+
             </ol>
         </section>
         <section class="footer">
@@ -197,37 +197,38 @@
     </div>
 
     <div class="page-record hide">
-            <span class="logo"></span>
-            <section class="pointer">
-            </section>
-            <section class="disk">
-                <div class="circle playing">
-                        <span class="button hide">
-                                <i class="iconfont icon-play3"></i>
-                           </span>
-                    <img class="record-cover" src="" alt="">
-                </div>
-            </section>
-            <section class="lyric-wrap">
-               <h1>标题</h1>
-               <div class="lyric">
-                   <div class="lines"></div>
-               </div>
-            </section>
-            <section class="more">
-                <div class="moreIcon">
-    
-                </div>
-            </section>
-            <section class="action clearfix">
-                <div class="open">
-                    <a href="#">打开</a>
-                </div>
-                <div class="download">
-                    <a href="#">下载</a>
-                </div>
-            </section>
-        </div>
+        <div class="cover-cover"></div>
+        <span class="logo"></span>
+        <section class="pointer">
+        </section>
+        <section class="disk">
+            <div class="circle playing">
+                <span class="button hide">
+                    <i class="iconfont icon-play3"></i>
+                </span>
+                <img class="record-cover" src="" alt="">
+            </div>
+        </section>
+        <section class="lyric-wrap">
+            <h1></h1><span class="author"></span>
+            <div class="lyric">
+                <div class="lines"></div>
+            </div>
+        </section>
+        <section class="more">
+            <div class="moreIcon">
+
+            </div>
+        </section>
+        <section class="action clearfix">
+            <div class="open">
+                <a href="#">打开</a>
+            </div>
+            <div class="download">
+                <a href="#">下载</a>
+            </div>
+        </section>
+    </div>
 
     <audio id="playaudio" autoplay="true" src=""></audio>
     <script src="//at.alicdn.com/t/font_395875_4hwrep7mypx8ncdi.js"></script>
@@ -238,7 +239,7 @@
             $li.addClass('active').siblings().removeClass('active')//取消被点击元素兄弟元素的样式
             $('.tab-content').children().eq(index).addClass('active').siblings().removeClass('active')//给被点击元素添加样式
         })
-        
+
     </script>
     <script src="./script/script.js"></script>
 </body>

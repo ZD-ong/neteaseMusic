@@ -19,7 +19,7 @@ $.get("http://localhost:3000/top/list?idx=1").then(function (data) {
 
 
 
-
+var timer
 
 function setHighQuality(data) {
     data.playlists.forEach(
@@ -229,7 +229,9 @@ function setHighQuality(data) {
 }
 
 function setNewSong(data) {
+    
     data.result.forEach(
+        
         function (song) {
             var tpl = `<li class="songList">
             <h3 class="songName"></h3>
@@ -251,6 +253,9 @@ function setNewSong(data) {
                 return authorArr.join(' / ')
             })
             $node.find('.profile .album').text(song.song.name)
+            
+            var array = []
+            var $p = $('<p/>')
             $node.on('click', function () {
                 var id = song.song.id
                 var url = "http://music.163.com/song/media/outer/url?id=" + id + ".mp3"
@@ -258,12 +263,26 @@ function setNewSong(data) {
                 $('.page-main').addClass('hide')
                 $('.page-record').removeClass('hide')
                 $('.lyric-wrap h1').text(song.song.name)
+                $('.lyric-wrap .author').text(function () {
+                    var authorArr = []
+                    var newSongAuthor = song.song.artists
+                    newSongAuthor.forEach(function (item) {
+                        authorArr.push(item.name)
+                    })
+                    return authorArr.join(' / ')
+                })
+                
+                
 
                 $.get("http://localhost:3000/lyric?id=" + id).then(function (data) {
+                    
+                    clearInterval(timer)
+                    $('.lines').html('')
                     var lyric = data.lrc.lyric
-                    var array = []
+                    
                     //将换行符去掉
                     var parts = lyric.split('\n')
+                    
                     parts.forEach(function (string, index) {
 
                         //将时间和歌词变成数组
@@ -278,19 +297,21 @@ function setNewSong(data) {
                         if (matches) {
                             var minute = +matches[1]
                             var second = +matches[2]
+                            
                             array.push({
-                                time: minute*60+second,
+                                time: minute * 60 + second,
                                 lyric: xxx[1]
                             })
                         }
 
 
                     })
-                    var $p = $('<p/>')
-                    setInterval(function () {
+
+                    timer = setInterval(function () {
+                        if(!array) return
                         var current = document.getElementById('playaudio').currentTime
                         for(var i = 0; i < array.length; i++) {
-                            
+    
                             if (i === array.length - 1) {
                                 $p.attr('data-time',array[i].time).text(array[i].lyric)
                             }
@@ -298,13 +319,18 @@ function setNewSong(data) {
                                 $p.attr('data-time',array[i].time).text(array[i].lyric)
                                 break;
                             }
+                            
+                            $p.appendTo($('.lyric .lines'))
                         }
-                        
+    
                     }, 1000)
-                    $p.appendTo($('.lyric .lines'))
+
                 })
+                
+                
 
                 $('.record-cover').attr('src', song.song.album.picUrl)
+                $('.cover-cover').attr('style', "background-image:url(" + song.song.album.picUrl + ")")
 
                 var mybody = document.getElementsByTagName('body')[0]
 

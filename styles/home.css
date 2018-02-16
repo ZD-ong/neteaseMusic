@@ -564,7 +564,7 @@ section.list > .profile-songs .icon-play {
     height: 100vh;
     position: relative;
 }
-.page-record::before {
+.page-record .cover-cover {
     content: '';
     height: 100%;
     width: 100%;
@@ -574,7 +574,7 @@ section.list > .profile-songs .icon-play {
     position: absolute;
     background: transparent url(//i.loli.net/2018/01/28/5a6ddd46c992b.jpeg) no-repeat center;
     background-size: cover;
-    filter: blur(50px) brightness(0.2);
+    filter: blur(50px) brightness(0.9);
 }
 .page-record .logo {
     position: absolute;
@@ -692,18 +692,23 @@ section.action .download {
         }
 }
 section.lyric-wrap {
-    color: #AEABAC;
+    color: #dddddd;
     text-align: center;
     line-height: 2.5;
-    margin-top: 32px;
+    margin-top: 46px;
+    padding: 0 16px;
 }
 section.lyric-wrap h1 {
     color: #ffffff;
     font-size: 18px;
 }
+section.lyric-wrap span {
+    font-size: 12px;
+}
 section.lyric-wrap .lines p {
     font-size: 14px;
     line-height: 32px;
+    color: #ffffff;
 }
 section.lyric-wrap .lyric {
     height: 96px;
