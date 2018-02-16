@@ -177,6 +177,7 @@ function setHighQuality(data) {
                     setProfileSongs(data2)
                     function setProfileSongs(data2) {
                         var index = 1
+                        //只获取前20首歌曲
                         data2.result.tracks.slice(0, 20).forEach(
                             function (song) {
                                 if (index < 10) {
