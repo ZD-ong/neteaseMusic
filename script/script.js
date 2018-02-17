@@ -378,7 +378,7 @@ function setNewSong(data) {
 
 
 
-            $('.list').append($node)
+            $('.songs .list').append($node)
         }
     )
     $('section.disk .circle').on('click', function () {
