@@ -272,7 +272,11 @@ function setNewSong(data) {
                     return authorArr.join(' / ')
                 })
                 
-                
+                if (document.getElementById('playaudio').played) {
+                    $('section.disk .circle .button').addClass('hide')
+                } else {
+                    $('section.disk .circle .button').removeClass('hide')
+                }
 
                 $.get("http://localhost:3000/lyric?id=" + id).then(function (data) {
                     
