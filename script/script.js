@@ -271,7 +271,7 @@ function setNewSong(data) {
                     })
                     return authorArr.join(' / ')
                 })
-                
+                //如果歌曲已经播放，隐藏播放按钮
                 if (document.getElementById('playaudio').played) {
                     $('section.disk .circle .button').addClass('hide')
                 } else {
@@ -492,4 +492,12 @@ function setHotSong(data) {
         }
     )
 
+}
+
+search()
+function search(){
+    $.get("http://localhost:3000/search/suggest?keywords= 海阔天空").then(function (data) {
+    console.log('搜索结果')
+    console.log(data.result.albums)
+    })
 }
