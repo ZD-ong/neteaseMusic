@@ -494,10 +494,16 @@ function setHotSong(data) {
 
 }
 
-search()
-function search(){
-    $.get("http://localhost:3000/search/suggest?keywords= 海阔天空").then(function (data) {
-    console.log('搜索结果')
-    console.log(data.result.albums)
+search('electric')
+function search(keyword){
+    $.get("http://localhost:3000/search/suggest?keywords= "+keyword).then(function (data) {
+        console.log('搜索结果')
+        var albums = data.result.albums
+        var artists = data.result.artists
+        var songs = data.result.songs
+        console.log(data.result)
+        console.log(albums)
+        console.log(artists)
+        console.log(songs)
     })
 }
