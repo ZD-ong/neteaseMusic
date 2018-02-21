@@ -720,6 +720,7 @@ section.lyric-wrap .lines p.active {
 
 .tab-content .page-3 {
     background: #fcfcfd;
+    height: 100%;
 }
 .tab-content .page-3 .search-bar {
     color: #cccccc;
@@ -750,3 +751,26 @@ section.lyric-wrap .lines p.active {
     color: #cccccc;
 }
 
+.search-main .hot-search {
+    padding: 15px 10px 0;
+}
+.search-main .hot-search h3 {
+    font-size: 12px;
+    line-height: 12px;
+    color: #666;
+}
+.hot-search .hot-search-wrap {
+    margin: 10px 0 7px;
+}
+.search-main .hot-search-wrap li {
+    display: inline-block;
+    height: 32px;
+    margin-right: 8px;
+    margin-bottom: 8px;
+    padding: 0 14px;
+    font-size: 14px;
+    line-height: 32px;
+    color: #333;
+    border: 1px solid #eeeeee;
+    border-radius: 16px;
+}

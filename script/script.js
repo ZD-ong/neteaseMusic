@@ -504,6 +504,8 @@ function search(keyword){
             var albums = data.result.albums
             var artists = data.result.artists
             var songs = data.result.songs
+
+            
         })
     })
     
