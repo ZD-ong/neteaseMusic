@@ -751,10 +751,12 @@ section.lyric-wrap .lines p.active {
     color: #cccccc;
 }
 
-.search-main .hot-search {
+.page-3 .hot-search,
+.search-result {
     padding: 15px 10px 0;
 }
-.search-main .hot-search h3 {
+.page-3 .hot-search h3,
+.search-result h3 {
     font-size: 12px;
     line-height: 12px;
     color: #666;
@@ -762,7 +764,7 @@ section.lyric-wrap .lines p.active {
 .hot-search .hot-search-wrap {
     margin: 10px 0 7px;
 }
-.search-main .hot-search-wrap li {
+.hot-search .hot-search-wrap li {
     display: inline-block;
     height: 32px;
     margin-right: 8px;
@@ -773,4 +775,28 @@ section.lyric-wrap .lines p.active {
     color: #333;
     border: 1px solid #eeeeee;
     border-radius: 16px;
+}
+
+.page-3 .search-result .artists {
+    display: flex;
+    align-items: center;
+    font-size: 16px;
+    padding: 10px 0;
+    border-bottom: 1px solid #eeeeee;
+}
+.search-result .artists .artist-cover {
+    border: 1px solid red;
+    width: 50px;
+    height: 50px;
+    float: left;
+}
+.page-3 .artists .artist-profile {
+    width: 300px;
+    float: left;
+    margin-left: 20px;
+    font-size: 16px;
+}
+.page-3 .artist-profile .more {
+    float: right;
+    color: #aaa;
 }
