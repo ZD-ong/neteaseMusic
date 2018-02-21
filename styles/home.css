@@ -777,26 +777,29 @@ section.lyric-wrap .lines p.active {
     border-radius: 16px;
 }
 
-.page-3 .search-result .artists {
+.page-3 .search-result .artists, 
+.albums {
     display: flex;
     align-items: center;
     font-size: 16px;
     padding: 10px 0;
     border-bottom: 1px solid #eeeeee;
 }
-.search-result .artists .artist-cover {
+.search-result .artists .artist-cover, 
+.album-cover {
     border: 1px solid red;
     width: 50px;
     height: 50px;
     float: left;
 }
-.page-3 .artists .artist-profile {
+.search-result .artist-profile, 
+.album-profile {
     width: 300px;
     float: left;
     margin-left: 20px;
     font-size: 16px;
 }
-.page-3 .artist-profile .more {
+.page-3 .search-result .more {
     float: right;
     color: #aaa;
 }
