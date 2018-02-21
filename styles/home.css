@@ -190,11 +190,7 @@ section.songs > .list .icon-play {
     vertical-align: middle;
     fill: #aaaaaa;
 }
-section.songs > .list .icon-sq {
-    fill: #fe672e;
-    font-size: 14px;
 
-}
 
 section.art {
     padding-top: 30px;
@@ -799,12 +795,62 @@ section.lyric-wrap .lines p.active {
     float: left;
     margin-left: 20px;
     font-size: 16px;
+    display: flex;
+    align-items: center;
 }
+
 #best-artist, 
 #best-album {
     color: #507daf;
+    display: inline-block;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    max-width: 212px;
+    flex: 1;
 }
 .page-3 .search-result .more {
-    float: right;
     color: #aaa;
+    flex: 0 0 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+
+.search-result .song-result > li > h3 {
+    font-size: 16px;
+    color: #507daf;
+    
+    max-width: 295px;
+    margin: 6px 0;
+}
+.search-result .song-result > li >p {
+    font-size: 12px;
+    color: #888888;
+    max-width: 300px;
+    overflow: hidden;
+    text-overflow:ellipsis;
+    white-space: nowrap;
+    max-width: 275px;
+}
+.search-result .song-result > li {
+    position: relative;
+    margin-left: 10px;
+    padding-bottom: 4px;
+    padding-top: 4px;
+    border-bottom: 1px solid #e2e2e2;
+}
+.search-result .song-result .playButton {
+    position: absolute;
+    right: 8px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+.search-result .song-result .icon-play {
+    width: 22px;
+    height: 22px;
+    vertical-align: middle;
+    fill: #aaaaaa;
 }

@@ -500,6 +500,9 @@ function search(keyword) {
     $('span.button').on('click', function () {
         keyword = $('#search').val()
         $.get("http://localhost:3000/search/suggest?keywords= " + keyword).then(function (data) {
+
+            $('.song-result').html('')
+
             console.log(data.result)
             var albums = data.result.albums
             var artists = data.result.artists
@@ -510,6 +513,33 @@ function search(keyword) {
             $('#best-artist').text(artists[0].name)
             $('.album-cover').attr('style', "background-image:url(" + albums[0].artist.picUrl + ")")
             $('#best-album').text(albums[0].name)
+
+
+            songs.forEach(function(data){
+                var tpl = `<li class="songList">
+            <h3 class="songName"></h3>
+            <p class="profile"><span class="author"></span> - <span class="album"></span></p>
+            <a class="playButton" href="#">
+                <svg class="icon icon-play">
+                    <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-play"></use>
+                </svg>
+            </a>
+        </li>`
+                var $node = $(tpl)
+                $node.find('.songName').text(data.name)
+                $node.find('.profile .author').text(function () {
+                    var authorArr = []
+                    var newSongAuthor = data.artists
+                    newSongAuthor.forEach(function (item) {
+                        authorArr.push(item.name)
+                    })
+                    return authorArr.join(' / ')
+                })
+                $node.find('.profile .album').text(data.album.name)
+                
+                $('.song-result').append($node)
+            })
+            
         })
     })
 
