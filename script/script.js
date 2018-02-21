@@ -494,16 +494,18 @@ function setHotSong(data) {
 
 }
 
-search('electric')
+search()
 function search(keyword){
-    $.get("http://localhost:3000/search/suggest?keywords= "+keyword).then(function (data) {
-        console.log('搜索结果')
-        var albums = data.result.albums
-        var artists = data.result.artists
-        var songs = data.result.songs
-        console.log(data.result)
-        console.log(albums)
-        console.log(artists)
-        console.log(songs)
+    
+    $('span.button').on('click', function () {
+        keyword = $('#search').val()
+        $.get("http://localhost:3000/search/suggest?keywords= " + keyword).then(function (data) {
+            console.log(data.result)
+            var albums = data.result.albums
+            var artists = data.result.artists
+            var songs = data.result.songs
+
+        })
     })
+    
 }
