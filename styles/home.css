@@ -717,3 +717,36 @@ section.lyric-wrap .lyric {
 section.lyric-wrap .lines p.active {
     color: #dddddd;
 }
+
+.tab-content .page-3 {
+    background: #fcfcfd;
+}
+.tab-content .page-3 .search-bar {
+    color: #cccccc;
+    padding: 14px 10px;
+    border-bottom: 1px solid #eeeeee;
+}
+.tab-content .page-3 .search-bar-wrap {
+    background: #ebecec;
+    border-radius: 16px;
+    vertical-align: middle;
+    align-items: center;
+    padding-left: 8px;
+}
+.page-3 .search-bar .button i{
+    vertical-align: middle;
+    font-size: 18px;
+}
+.page-3 .search-bar input {
+    background: transparent;
+    box-shadow: none;
+    outline: none;
+    border: none;
+    height: 30px;
+    line-height: 18px;
+    font-size: 14px;
+}
+.page-3 .search-bar ::-webkit-input-placeholder {
+    color: #cccccc;
+}
+
