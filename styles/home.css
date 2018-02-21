@@ -787,10 +787,11 @@ section.lyric-wrap .lines p.active {
 }
 .search-result .artists .artist-cover, 
 .album-cover {
-    border: 1px solid red;
     width: 50px;
     height: 50px;
     float: left;
+    background: no-repeat;
+    background-size: cover;
 }
 .search-result .artist-profile, 
 .album-profile {
@@ -798,6 +799,10 @@ section.lyric-wrap .lines p.active {
     float: left;
     margin-left: 20px;
     font-size: 16px;
+}
+#best-artist, 
+#best-album {
+    color: #507daf;
 }
 .page-3 .search-result .more {
     float: right;

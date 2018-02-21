@@ -175,7 +175,7 @@
                     </div>
                     
                 </div>
-                <div class="hot-search hide">
+                <div class="hot-search">
                     <h3>热门搜索</h3>
                     <ul class="hot-search-wrap">
                         <li>Lauv</li>
@@ -186,12 +186,12 @@
                         <li>LANY</li>
                     </ul>
                 </div>
-                <div class="search-result">
+                <div class="search-result hide">
                     <h3>最佳匹配</h3>
                     <div class="artists">
                         <div class="artist-cover"></div>
-                        <div class="artist-profile">
-                            <span>歌手</span>
+                        <div class="artist-profile">歌手：
+                            <span id="best-artist"></span>
                             <span class="more">
                                 <i class="iconfont icon-right"></i>
                             </span>
@@ -199,8 +199,8 @@
                     </div>
                     <div class="albums">
                         <div class="album-cover"></div>
-                        <div class="album-profile">
-                            <span>专辑</span>
+                        <div class="album-profile">专辑：
+                            <span id="best-album"></span>
                             <span class="more">
                                 <i class="iconfont icon-right"></i>
                             </span>
@@ -298,6 +298,11 @@
             let index = $li.index()//获取到被点击元素的index
             $li.addClass('active').siblings().removeClass('active')//取消被点击元素兄弟元素的样式
             $('.tab-content').children().eq(index).addClass('active').siblings().removeClass('active')//给被点击元素添加样式
+        })
+
+        $('.icon-search').on('click',function(){
+            $('.search-result').removeClass('hide')
+            $('.hot-search').addClass('hide')
         })
 
     </script>

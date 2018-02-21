@@ -229,9 +229,9 @@ function setHighQuality(data) {
 }
 
 function setNewSong(data) {
-    
+
     data.result.forEach(
-        
+
         function (song) {
             var tpl = `<li class="songList">
             <h3 class="songName"></h3>
@@ -253,7 +253,7 @@ function setNewSong(data) {
                 return authorArr.join(' / ')
             })
             $node.find('.profile .album').text(song.song.name)
-            
+
             var array = []
             var $p = $('<p/>')
             $node.on('click', function () {
@@ -279,14 +279,14 @@ function setNewSong(data) {
                 }
 
                 $.get("http://localhost:3000/lyric?id=" + id).then(function (data) {
-                    
+
                     clearInterval(timer)
                     $('.lines').html('')
                     var lyric = data.lrc.lyric
-                    
+
                     //将换行符去掉
                     var parts = lyric.split('\n')
-                    
+
                     parts.forEach(function (string, index) {
 
                         //将时间和歌词变成数组
@@ -301,7 +301,7 @@ function setNewSong(data) {
                         if (matches) {
                             var minute = +matches[1]
                             var second = +matches[2]
-                            
+
                             array.push({
                                 time: minute * 60 + second,
                                 lyric: xxx[1]
@@ -312,26 +312,26 @@ function setNewSong(data) {
                     })
 
                     timer = setInterval(function () {
-                        if(!array) return
+                        if (!array) return
                         var current = document.getElementById('playaudio').currentTime
-                        for(var i = 0; i < array.length; i++) {
-    
+                        for (var i = 0; i < array.length; i++) {
+
                             if (i === array.length - 1) {
-                                $p.attr('data-time',array[i].time).text(array[i].lyric)
+                                $p.attr('data-time', array[i].time).text(array[i].lyric)
                             }
-                            else if (array[i].time <= current && array[i + 1].time > current){
-                                $p.attr('data-time',array[i].time).text(array[i].lyric)
+                            else if (array[i].time <= current && array[i + 1].time > current) {
+                                $p.attr('data-time', array[i].time).text(array[i].lyric)
                                 break;
                             }
-                            
+
                             $p.appendTo($('.lyric .lines'))
                         }
-    
+
                     }, 1000)
 
                 })
-                
-                
+
+
 
                 $('.record-cover').attr('src', song.song.album.picUrl)
                 $('.cover-cover').attr('style', "background-image:url(" + song.song.album.picUrl + ")")
@@ -495,8 +495,8 @@ function setHotSong(data) {
 }
 
 search()
-function search(keyword){
-    
+function search(keyword) {
+
     $('span.button').on('click', function () {
         keyword = $('#search').val()
         $.get("http://localhost:3000/search/suggest?keywords= " + keyword).then(function (data) {
@@ -506,7 +506,11 @@ function search(keyword){
             var songs = data.result.songs
 
             
+            $('.artist-cover').attr('style', "background-image:url(" + artists[0].picUrl + ")")
+            $('#best-artist').text(artists[0].name)
+            $('.album-cover').attr('style', "background-image:url(" + albums[0].artist.picUrl + ")")
+            $('#best-album').text(albums[0].name)
         })
     })
-    
+
 }
