@@ -499,6 +499,11 @@ function search(keyword) {
 
     $('span.button').on('click', function () {
         keyword = $('#search').val()
+        if(!keyword){
+            $('.search-result').addClass('hide')
+            $('.hot-search').removeClass('hide')
+        }
+
         $.get("http://localhost:3000/search/suggest?keywords= " + keyword).then(function (data) {
 
             $('.song-result').html('')
