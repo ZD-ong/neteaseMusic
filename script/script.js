@@ -16,8 +16,10 @@ $.get("http://localhost:3000/top/list?idx=1").then(function (data) {
     console.log(data)
     setHotSong(data)
 })
-
-
+$.get("http://localhost:3000/login/cellphone?phone=15352511905&password=zuodong2018").then(function (data) {
+    console.log('登录')
+    console.log(data)
+})
 
 var timer
 
