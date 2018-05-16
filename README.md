@@ -17,8 +17,6 @@
 ![搜索页](https://i.loli.net/2018/05/16/5afc518d0a3fe.png)
 
 ![搜索结果](https://i.loli.net/2018/05/16/5afc51ce3bb3e.png)
-
-
 ## 功能
 
 ### 首页
