@@ -2,10 +2,11 @@
 
 后端使用 [网易云音乐 Node.js API service](https://github.com/ZD-ong/NeteaseCloudMusicApi) 提供真实数据，还未部署到服务器上，可以 clone 此项目及 Node.js API service 本地预览
 
---------
+
 
 项目预览图片：
-![首页](https://i.loli.net/2018/05/16/5afc400f59513.png)
+
+![首页](ttps://i.loli.net/2018/05/16/5afc4b4b0d8a0.png)
 
 ![播放页](https://i.loli.net/2018/05/16/5afc4146f14de.png)
 
@@ -19,7 +20,7 @@
 
 
 ## 功能
-------
+
 ### 首页
 - 推荐歌单，点击浏览歌单详情，点击歌曲播放
 - 最新音乐，点击播放
