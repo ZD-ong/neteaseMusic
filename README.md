@@ -10,13 +10,13 @@
 
 ![播放页](https://i.loli.net/2018/05/16/5afc50be75fd4.png)
 
-![歌单详情](https://i.loli.net/2018/05/16/5afc4137bbcae.png)
+![歌单详情](https://i.loli.net/2018/05/16/5afc5138618b3.png)
 
-![热歌榜](https://i.loli.net/2018/05/16/5afc410a44b91.png)
+![热歌榜](https://i.loli.net/2018/05/16/5afc51608c823.png)
 
-![搜索页](https://i.loli.net/2018/05/16/5afc40ef22e45.png)
+![搜索页](https://i.loli.net/2018/05/16/5afc518d0a3fe.png)
 
-![搜索结果](https://i.loli.net/2018/05/16/5afc411a65c7a.png)
+![搜索结果](https://i.loli.net/2018/05/16/5afc51ce3bb3e.png)
 
 
 ## 功能
