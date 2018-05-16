@@ -5,7 +5,7 @@
 
 
 项目预览图片：
-![neteaseMusic](https://i.loli.net/2018/05/16/5afc556cc202a.png)
+![neteaseMusic](https://i.loli.net/2018/05/17/5afc56728888f.png)
 ## 功能
 
 ### 首页
