@@ -8,7 +8,7 @@
 
 ![首页](https://i.loli.net/2018/05/16/5afc4f76d8db4.png)
 
-![播放页](https://i.loli.net/2018/05/16/5afc4146f14de.png)
+![播放页](https://i.loli.net/2018/05/16/5afc50be75fd4.png)
 
 ![歌单详情](https://i.loli.net/2018/05/16/5afc4137bbcae.png)
 
