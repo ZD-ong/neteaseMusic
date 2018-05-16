@@ -1,20 +1,21 @@
 # neteaseMusic
 
 后端使用 [网易云音乐 Node.js API service](https://github.com/ZD-ong/NeteaseCloudMusicApi) 提供真实数据，还未部署到服务器上，可以 clone 此项目及 Node.js API service 本地预览
+
 --------
 
 项目预览图片：
-![首页](https://i.loli.net/2018/05/16/5afc1fd9832c6.png)
+![首页](https://i.loli.net/2018/05/16/5afc400f59513.png)
 
-![播放页](https://i.loli.net/2018/05/16/5afc1fdc733dc.png)
+![播放页](https://i.loli.net/2018/05/16/5afc246022492.png)
 
-![歌单详情](https://i.loli.net/2018/05/16/5afc1fdcdd80d.png)
+![歌单详情](https://i.loli.net/2018/05/16/5afc2479f27dc.png)
 
-![热歌榜](https://i.loli.net/2018/05/16/5afc1fd9b11ae.png)
+![热歌榜](https://i.loli.net/2018/05/16/5afc248b9368a.png)
 
-![搜索页](https://i.loli.net/2018/05/16/5afc1fda15ee1.png)
+![搜索页](https://i.loli.net/2018/05/16/5afc24a772041.png)
 
-![搜索结果](https://i.loli.net/2018/05/16/5afc1fdb65cc3.png)
+![搜索结果](https://i.loli.net/2018/05/16/5afc24c3ad47a.png)
 
 
 ## 功能
