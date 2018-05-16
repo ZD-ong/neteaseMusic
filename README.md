@@ -6,7 +6,7 @@
 
 项目预览图片：
 
-![首页](https://i.loli.net/2018/05/16/5afc4e91bc217.png)
+![首页](https://i.loli.net/2018/05/16/5afc4ef5262fe.png)
 
 ![播放页](https://i.loli.net/2018/05/16/5afc4146f14de.png)
 
