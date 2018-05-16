@@ -7,15 +7,15 @@
 项目预览图片：
 ![首页](https://i.loli.net/2018/05/16/5afc400f59513.png)
 
-![播放页](https://i.loli.net/2018/05/16/5afc246022492.png)
+![播放页](https://i.loli.net/2018/05/16/5afc4146f14de.png)
 
-![歌单详情](https://i.loli.net/2018/05/16/5afc2479f27dc.png)
+![歌单详情](https://i.loli.net/2018/05/16/5afc4137bbcae.png)
 
-![热歌榜](https://i.loli.net/2018/05/16/5afc248b9368a.png)
+![热歌榜](https://i.loli.net/2018/05/16/5afc410a44b91.png)
 
-![搜索页](https://i.loli.net/2018/05/16/5afc24a772041.png)
+![搜索页](https://i.loli.net/2018/05/16/5afc40ef22e45.png)
 
-![搜索结果](https://i.loli.net/2018/05/16/5afc24c3ad47a.png)
+![搜索结果](https://i.loli.net/2018/05/16/5afc411a65c7a.png)
 
 
 ## 功能
